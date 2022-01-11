@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PracticeCrudSimple.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PracticeCrudSimple.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext: IdentityDbContext
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -15,5 +16,6 @@ namespace PracticeCrudSimple.Data
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<CustomUser> CustomUsers { get; set; }
     }
 }
